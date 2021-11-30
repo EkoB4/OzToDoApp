@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct rowList: View {
+struct rowListView: View {
     @State var value : itemModel
     var body: some View {
         HStack{
@@ -24,8 +24,8 @@ struct rowList_Previews: PreviewProvider {
     static var secondItem = itemModel(title: "second item", isFinished: true)
     static var previews: some View {
         Group{
-            rowList(value:firstItem)
-            rowList(value:secondItem)
+            rowListView(value:firstItem)
+            rowListView(value:secondItem)
         }.previewLayout(.sizeThatFits)
     }
 }

@@ -27,6 +27,7 @@ struct GitImageView : View{
                     .font(.title)
                     .foregroundColor(.white)
                     .offset(y:-130)
+                    .shadow(radius: 1)
             }
         }
     }
@@ -45,12 +46,13 @@ struct InstagramImageView : View {
                 .clipped()
                 .scaledToFit()
                 .frame(height: 60).offset(x: -100, y: -75)
-            Link(destination: URL(string:"https://github.com/EkoB4")!) {
+            Link(destination: URL(string:"https://www.instagram.com/ekinbacik/")!) {
                 Text("Instagram")
                     .bold()
                     .font(.title)
                     .foregroundColor(.white)
-                    .offset(x:30,y:-135)
+                    .offset(x:10,y:-135)
+                    .shadow(radius: 1)
             }
         }
     }
@@ -75,6 +77,7 @@ struct MailImageView : View {
                     .font(.title)
                     .foregroundColor(.white)
                     .offset(x:-5,y:-130)
+                    .shadow(radius: 1)
             }
         }
     }

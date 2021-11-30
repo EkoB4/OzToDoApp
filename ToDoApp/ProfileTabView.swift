@@ -34,7 +34,7 @@ struct ProfileTabView : View{
                 MailImageView()
                     .frame(width: pos.size.width*1, height: pos.size.height*1.25)
                 profileTab()
-                    .frame(width: pos.size.width*1, height: pos.size.height*0.3)
+                    .frame(width: pos.size.width*1, height: pos.size.height*0.4)
             }
         }
     }

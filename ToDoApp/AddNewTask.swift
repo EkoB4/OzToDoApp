@@ -28,7 +28,7 @@ struct AddNewTaskView: View {
                                      .font(.headline)
                                      .frame(height: 55)
                                      .frame(maxWidth: .infinity)
-                                     .background(Color.red)
+                                     .background(Color("BackgroundColor"))
                                      .cornerRadius(10)
                              })
             }

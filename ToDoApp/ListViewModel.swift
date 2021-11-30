@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 class ListViewModel : ObservableObject {
-    @Published var  items : [itemModel] = [] {
+    @Published var  itemTexts : [itemModel] = [] {
         didSet{
             saveList()
         }
@@ -20,34 +20,31 @@ class ListViewModel : ObservableObject {
         getItems()
     }
     func getItems(){
-      /*  let newItems = [
-            itemModel(title:"first title", isFinished:true),
-            itemModel(title:"second title", isFinished:true),
-            itemModel(title:"third title", isFinished:true)]
-            items.append(contentsOf: newItems)*/
-        guard let data = UserDefaults.standard.data(forKey: itemsKey) else {return}
-        guard let savedItems = try? JSONDecoder().decode([itemModel].self ,from: data) else {return}
-        self.items = savedItems
+        guard
+        let data = UserDefaults.standard.data(forKey: itemsKey),
+        let savedItems = try? JSONDecoder().decode([itemModel].self ,from: data)
+        else{return}
+        self.itemTexts = savedItems
     }
     func deleteItem(indexSet : IndexSet){
-        items.remove(atOffsets: indexSet)
+        itemTexts.remove(atOffsets: indexSet)
       /*  let deleteItem = itemModel(title: deletedTitle, isFinished: false)
         items.append(deleteItem)*/
     }
     func moveItem(from : IndexSet , to : Int ){
-        items.move(fromOffsets: from, toOffset: to)
+        itemTexts.move(fromOffsets: from, toOffset: to)
     }
     func addItem(title:String){
         let addNewItem = itemModel(title: title, isFinished: true)
-        items.append(addNewItem)
+        itemTexts.append(addNewItem)
     }
     func updateItem(item: itemModel){
-        if let index = items.firstIndex(where: { $0.id == item.id }){
-            items[index] = item.isUpdateComplated()
+        if let index = itemTexts.firstIndex(where: { $0.id == item.id }){
+            itemTexts[index] = item.isUpdateComplated()
         }
     }
     func saveList(){
-            if let encodedData = try? JSONEncoder().encode(items){
+            if let encodedData = try? JSONEncoder().encode(itemTexts){
                 UserDefaults.standard.set(encodedData, forKey: itemsKey)
         }
    }

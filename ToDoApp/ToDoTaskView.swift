@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct TodoListView: View {
-    @State var listViewModel: ListViewModel
-
-    init() {
+    @EnvironmentObject var listViewModel :ListViewModel
+   /* init() {
         listViewModel = ListViewModel()
-    }
+    }*/
     var body: some View {
         NavigationView {
             ZStack{
-                if listViewModel.items.isEmpty{
+                if listViewModel.itemTexts.isEmpty{
                     EmptyView()
                 }else{
                     List{
-                        ForEach(listViewModel.items){ item in
-                            rowList(value:item)
+                        ForEach(listViewModel.itemTexts){ item in
+                            rowListView(value:item)
                                 .onTapGesture {
                                     withAnimation(.linear){
                                         listViewModel.updateItem(item: item)
@@ -30,17 +29,18 @@ struct TodoListView: View {
                         }
                         .onDelete(perform:listViewModel.deleteItem)
                         .onMove(perform:listViewModel.moveItem)
+                        
                     }
                 }
             }
             /*Navigation Bar items*/
             //.listStyle(PlainListStyle())
             .navigationBarTitle("To Do App")
-            .navigationBarItems(leading: EditButton().foregroundColor(.red),
+            .navigationBarItems(leading: EditButton().foregroundColor(Color("TextColor")),
                                 trailing: NavigationLink(destination: AddNewTaskView(), label: {
                 Text("Add")
                     .bold()
-                    .foregroundColor(.red)
+                    .foregroundColor(Color("TextColor"))
             })
             )
         }
