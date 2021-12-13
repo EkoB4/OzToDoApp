@@ -14,14 +14,28 @@ struct AddNewTaskView: View {
     @State var alertText : String = ""
     @State var showAlert : Bool = false
     
+    @State var EndDate = Date()
+    var dateFormatter : DateFormatter{
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .medium
+        return dateFormat
+    }
     var body: some View {
         ScrollView{
             VStack{
-                TextField("Add item ", text : $userText)
+                TextField("Add item 🖊", text : $userText)
                     .padding()
-                    .background(Color.gray.opacity(0.3 ))
+                    .background(Color.white.opacity(0.3 ))
                     .cornerRadius(10)
                     .frame(height:50)
+                    
+               // Text("Endate")
+               // Text(dateFormatter.string(from: EndDate))
+                DatePicker("",selection: $EndDate, in:Date.now...,displayedComponents: .date)
+                    .labelsHidden()
+                    .frame(maxHeight:400)
+                    .datePickerStyle(.graphical)
+                    .accentColor(Color("BackgroundColor"))
                 Button(action: saveButtonPressed, label: {
                                  Text("Save".uppercased())
                                      .foregroundColor(.white)
@@ -32,15 +46,18 @@ struct AddNewTaskView: View {
                                      .cornerRadius(10)
                              })
             }
+            
+            
         }
         .padding(14)
         .navigationBarTitle("Add Task")
         .alert(isPresented: $showAlert, content: alertCome)
+        
     }
     
     func saveButtonPressed(){
         if textApporitate(){
-            listViewModel.addItem(title: userText)
+            listViewModel.addItem(title:userText+dateFormatter.string(from: EndDate))
             presentationMode.wrappedValue.dismiss()
         }
     }

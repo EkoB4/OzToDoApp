@@ -9,9 +9,6 @@ import SwiftUI
 
 struct TodoListView: View {
     @EnvironmentObject var listViewModel :ListViewModel
-   /* init() {
-        listViewModel = ListViewModel()
-    }*/
     var body: some View {
         NavigationView {
             ZStack{
@@ -19,17 +16,18 @@ struct TodoListView: View {
                     EmptyView()
                 }else{
                     List{
-                        ForEach(listViewModel.itemTexts){ item in
-                            rowListView(value:item)
+                        ForEach(listViewModel.itemTexts){item in
+                            rowListView(value: item)
                                 .onTapGesture {
                                     withAnimation(.linear){
-                                        listViewModel.updateItem(item: item)
+                                        listViewModel
+                                            .updateItem(item: item)
                                     }
                                 }
                         }
                         .onDelete(perform:listViewModel.deleteItem)
                         .onMove(perform:listViewModel.moveItem)
-                        
+
                     }
                 }
             }
@@ -49,16 +47,6 @@ struct TodoListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        TodoListView()
+        TodoListView().environmentObject(ListViewModel())
     }
 }
-
-/*struct rowList : View {
- var body: some View{
- HStack{
- Image(systemName:"checkmark.circle.fill")
- Text("This is the first item")
- Spacer()
- }
- }
- }*/

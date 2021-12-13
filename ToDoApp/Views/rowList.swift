@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct rowListView: View {
-    @State var value : itemModel
+    let value : itemModel
     var body: some View {
         HStack{
             Image(systemName: value.isFinished ? "circle":"checkmark.circle.fill")
@@ -20,8 +20,8 @@ struct rowListView: View {
     }
 }
 struct rowList_Previews: PreviewProvider {
-    static var firstItem = itemModel(title:"first item" , isFinished: false)
-    static var secondItem = itemModel(title: "second item", isFinished: true)
+    static var firstItem = itemModel(title:"first items" , isFinished: false,DeadDate: "")
+    static var secondItem = itemModel(title: "second item", isFinished: true,DeadDate: "")
     static var previews: some View {
         Group{
             rowListView(value:firstItem)

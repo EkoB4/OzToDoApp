@@ -15,18 +15,19 @@ struct GitImageView : View{
                 .frame(width: 280, height: 70)
                 .foregroundColor(Color.gray).opacity(0.2)
                 .cornerRadius(20)
+                .offset(y:130)
              
         Image("github-logo")
                 .resizable()
                 .clipped()
                 .scaledToFit()
-                .frame(height: 60).offset(x: -100, y: -75)
+                .frame(height: 60).offset(x: -100, y: 55)
             Link(destination: URL(string:"https://github.com/EkoB4")!) {
                 Text("GitHub")
                     .bold()
                     .font(.title)
                     .foregroundColor(.white)
-                    .offset(y:-130)
+                    //.offset(y:-80)
                     .shadow(radius: 1)
             }
         }
@@ -41,17 +42,18 @@ struct InstagramImageView : View {
                 .foregroundColor(Color.gray.opacity(0.2))
                 .opacity(0.8)
                 .cornerRadius(20)
+                .offset(y:130)
+
         Image("instagram")
                 .resizable()
                 .clipped()
                 .scaledToFit()
-                .frame(height: 60).offset(x: -100, y: -75)
+                .frame(height: 60).offset(x: -100, y: 55)
             Link(destination: URL(string:"https://www.instagram.com/ekinbacik/")!) {
                 Text("Instagram")
                     .bold()
                     .font(.title)
                     .foregroundColor(.white)
-                    .offset(x:10,y:-135)
                     .shadow(radius: 1)
             }
         }
@@ -66,17 +68,18 @@ struct MailImageView : View {
                 .frame(width: 280, height: 70)
                 .foregroundColor(Color.gray.opacity(0.2)).opacity(0.8)
                 .cornerRadius(20)
+                .offset(y:130)
         Image("mail")
                 .resizable()
                 .clipped()
                 .scaledToFit()
-                .frame(height: 60).offset(x: -100, y: -75)
-            Link(destination: URL(string:"https://github.com/EkoB4")!) {
+                .frame(height: 60).offset(x: -100, y: 55)
+            
+            Link(destination: URL(string:"https://mail.google.com/mail/u/0/#inbox?compose=CllgCJTHWJWVlRvHLSRfzbQXPdqPnWdvhXjZXlmkLLSpCFDhggLPmgsqWBwwXFqcbXhSDVMFlxV")!) {
                 Text("Gmail")
                     .bold()
                     .font(.title)
                     .foregroundColor(.white)
-                    .offset(x:-5,y:-130)
                     .shadow(radius: 1)
             }
         }

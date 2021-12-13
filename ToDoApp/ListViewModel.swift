@@ -35,9 +35,10 @@ class ListViewModel : ObservableObject {
         itemTexts.move(fromOffsets: from, toOffset: to)
     }
     func addItem(title:String){
-        let addNewItem = itemModel(title: title, isFinished: true)
+        let addNewItem = itemModel(title: title, isFinished: true,DeadDate: "")
         itemTexts.append(addNewItem)
     }
+   
     func updateItem(item: itemModel){
         if let index = itemTexts.firstIndex(where: { $0.id == item.id }){
             itemTexts[index] = item.isUpdateComplated()
