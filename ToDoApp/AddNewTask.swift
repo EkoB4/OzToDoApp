@@ -13,8 +13,8 @@ struct AddNewTaskView: View {
     
     @State var alertText : String = ""
     @State var showAlert : Bool = false
-    
     @State var EndDate = Date()
+    @State var IsOk : Bool = false
     var dateFormatter : DateFormatter{
         let dateFormat = DateFormatter()
         dateFormat.dateStyle = .medium
@@ -28,14 +28,19 @@ struct AddNewTaskView: View {
                     .background(Color.white.opacity(0.3 ))
                     .cornerRadius(10)
                     .frame(height:50)
-                    
+                if IsOk{
+                    DatePicker("",selection: $EndDate, in:Date.now...,displayedComponents: .date)
+                        .labelsHidden()
+                        .frame(maxHeight:400)
+                        .datePickerStyle(.graphical)
+                        .accentColor(Color("BackgroundColor"))
+                }
+                Toggle(isOn: $IsOk) {
+                    Text("Add a Date 📅")
+                        .bold()
+                }.tint(Color("BackgroundColor"))
                // Text("Endate")
                // Text(dateFormatter.string(from: EndDate))
-                DatePicker("",selection: $EndDate, in:Date.now...,displayedComponents: .date)
-                    .labelsHidden()
-                    .frame(maxHeight:400)
-                    .datePickerStyle(.graphical)
-                    .accentColor(Color("BackgroundColor"))
                 Button(action: saveButtonPressed, label: {
                                  Text("Save".uppercased())
                                      .foregroundColor(.white)
@@ -50,14 +55,18 @@ struct AddNewTaskView: View {
             
         }
         .padding(14)
-        .navigationBarTitle("Add Task")
+        .navigationBarTitle("Add a new task")
         .alert(isPresented: $showAlert, content: alertCome)
         
     }
     
     func saveButtonPressed(){
         if textApporitate(){
-            listViewModel.addItem(title:userText+dateFormatter.string(from: EndDate))
+            if IsOk{
+                listViewModel.addItem(title:"\(userText)  End Date : \(dateFormatter.string(from: EndDate))")
+            }else{
+                listViewModel.addItem(title: userText)
+            }
             presentationMode.wrappedValue.dismiss()
         }
     }
@@ -87,3 +96,4 @@ struct addNew_Previews: PreviewProvider {
         .environmentObject(ListViewModel())
     }
 }
+

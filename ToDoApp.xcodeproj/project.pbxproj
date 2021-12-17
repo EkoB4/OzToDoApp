@@ -24,6 +24,7 @@
 		3526DCA9275543BE0095143B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526DCA8275543BE0095143B /* ProfileView.swift */; };
 		3526DCAB275544470095143B /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526DCAA275544470095143B /* ProfileTabView.swift */; };
 		356326432756775C00A9BB8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356326422756775C00A9BB8A /* LaunchScreen.storyboard */; };
+		359CDA77276AAEA800BAFF8C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359CDA76276AAEA700BAFF8C /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		3526DCA8275543BE0095143B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3526DCAA275544470095143B /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
 		356326422756775C00A9BB8A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		359CDA76276AAEA700BAFF8C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		3526DC5F27553F230095143B = {
 			isa = PBXGroup;
 			children = (
+				359CDA76276AAEA700BAFF8C /* TestView.swift */,
 				3526DC6A27553F230095143B /* ToDoApp */,
 				3526DC7B27553F260095143B /* ToDoAppTests */,
 				3526DC8527553F260095143B /* ToDoAppUITests */,
@@ -296,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				359CDA77276AAEA800BAFF8C /* TestView.swift in Sources */,
 				3526DC9F2755401D0095143B /* rowList.swift in Sources */,
 				3526DC9A27553FD90095143B /* ListViewModel.swift in Sources */,
 				3526DC9C27553FE00095143B /* Images.swift in Sources */,
