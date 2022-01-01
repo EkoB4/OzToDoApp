@@ -17,7 +17,7 @@ struct AddNewTaskView: View {
     @State var IsOk : Bool = false
     var dateFormatter : DateFormatter{
         let dateFormat = DateFormatter()
-        dateFormat.dateStyle = .medium
+        dateFormat.dateStyle = .short
         return dateFormat
     }
     var body: some View {
@@ -51,8 +51,6 @@ struct AddNewTaskView: View {
                                      .cornerRadius(10)
                              })
             }
-            
-            
         }
         .padding(14)
         .navigationBarTitle("Add a new task")
@@ -63,7 +61,7 @@ struct AddNewTaskView: View {
     func saveButtonPressed(){
         if textApporitate(){
             if IsOk{
-                listViewModel.addItem(title:"\(userText)  End Date : \(dateFormatter.string(from: EndDate))")
+                listViewModel.addItem(title:"\(userText)      End Day :\(dateFormatter.string(from: EndDate))")
             }else{
                 listViewModel.addItem(title: userText)
             }
