@@ -50,6 +50,7 @@ struct AddNewTaskView: View {
                                      .background(Color("BackgroundColor"))
                                      .cornerRadius(10)
                              })
+
             }
         }
         .padding(14)

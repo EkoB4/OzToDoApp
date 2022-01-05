@@ -48,5 +48,6 @@ class ListViewModel : ObservableObject {
             if let encodedData = try? JSONEncoder().encode(itemTexts){
                 UserDefaults.standard.set(encodedData, forKey: itemsKey)
         }
-   }
+    }
+
  }
