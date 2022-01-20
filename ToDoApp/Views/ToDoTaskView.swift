@@ -24,10 +24,7 @@ struct TodoListView: View {
                                             .updateItem(item: item)
                                     }
                                 }
-                        }
-                        .onDelete(perform:listViewModel.deleteItem)
-                        .onMove(perform:listViewModel.moveItem)
-
+                        }                      .onDelete(perform:listViewModel.deleteItem)     .onMove(perform:listViewModel.moveItem)
                     }
                 }
             }

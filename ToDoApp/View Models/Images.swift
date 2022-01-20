@@ -13,7 +13,7 @@ struct GitImageView : View{
         VStack{
             Rectangle()
                 .frame(width: 280, height: 70)
-                .foregroundColor(Color.gray).opacity(0.2)
+                .foregroundColor(Color("TextColor")).opacity(0.1)
                 .cornerRadius(20)
                 .offset(y:130)
              
@@ -28,7 +28,7 @@ struct GitImageView : View{
                     .font(.title)
                     .foregroundColor(.white)
                     //.offset(y:-80)
-                    .shadow(radius: 1)
+                    .shadow(radius: 20)
             }
         }
     }
@@ -39,7 +39,7 @@ struct InstagramImageView : View {
         VStack{
             Rectangle()
                 .frame(width:280, height: 70)
-                .foregroundColor(Color.gray.opacity(0.2))
+                .foregroundColor(Color("TextColor").opacity(0.1))
                 .opacity(0.8)
                 .cornerRadius(20)
                 .offset(y:130)
@@ -54,7 +54,7 @@ struct InstagramImageView : View {
                     .bold()
                     .font(.title)
                     .foregroundColor(.white)
-                    .shadow(radius: 1)
+                    .shadow(radius: 20)
             }
         }
     }
@@ -66,7 +66,7 @@ struct MailImageView : View {
         VStack{
             Rectangle()
                 .frame(width: 280, height: 70)
-                .foregroundColor(Color.gray.opacity(0.2)).opacity(0.8)
+                .foregroundColor(Color("TextColor").opacity(0.1)).opacity(0.8)
                 .cornerRadius(20)
                 .offset(y:130)
         Image("mail")
@@ -80,7 +80,25 @@ struct MailImageView : View {
                     .bold()
                     .font(.title)
                     .foregroundColor(.white)
-                    .shadow(radius: 1)
+                    .shadow(radius: 20)
+            }
+        }
+    }
+}
+struct AllSocials: View {
+    var body: some View{
+        HStack(alignment:.bottom){
+            GeometryReader{_ in
+        RoundedRectangle(cornerRadius: 20)
+                    .frame(width: UIScreen.main.bounds.width*0.9, height: UIScreen.main.bounds.height/2.3)
+                    .foregroundColor(Color.white)
+                    .padding(14)
+                MailImageView()
+                    .frame(width: UIScreen.main.bounds.width*1, height: UIScreen.main.bounds.height/50)
+                InstagramImageView()
+                    .frame(width: UIScreen.main.bounds.width*1, height: UIScreen.main.bounds.height/4)
+                GitImageView()
+                    .frame(width: UIScreen.main.bounds.width*1, height: UIScreen.main.bounds.height/2)
             }
         }
     }
@@ -90,5 +108,6 @@ struct imageView_Previews : PreviewProvider{
         GitImageView().previewLayout(.sizeThatFits)
         InstagramImageView().previewLayout(.sizeThatFits)
         MailImageView().previewLayout(.sizeThatFits)
+        AllSocials().previewLayout(.sizeThatFits)
     }
 }

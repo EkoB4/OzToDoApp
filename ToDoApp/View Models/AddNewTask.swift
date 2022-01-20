@@ -25,9 +25,9 @@ struct AddNewTaskView: View {
     var body: some View {
             VStack{
                 HStack{
-                TextField("Add item 🖊", text : $userText)
+                TextField("Add item...", text : $userText)
                     .padding()
-                    .background(Color.white.opacity(0.3 ))
+                    .background(Color.white.opacity(1))
                     .cornerRadius(10)
                     .frame(height:50)
                 }
@@ -53,13 +53,14 @@ struct AddNewTaskView: View {
                              })
                 BottomSheet(
                               isOpen: self.$isSheetOpen,
-                              config: BottomSheetConfig(maxHeight: UIScreen.main.bounds.height/3)
+                              config: BottomSheetConfig(maxHeight: UIScreen.main.bounds.height/2)
                           ){
                               EmojiView(show: self.$show, userText: self.$userText)
                               Color.white
                           }
 
             }.padding(14)
+            .background(Color("SecondScreenColor"))
         .navigationBarTitle("Add a new task")
         .alert(isPresented: $showAlert, content: alertCome)
         
@@ -77,7 +78,7 @@ struct AddNewTaskView: View {
     }
     func textApporitate() -> Bool{
         if userText.isEmpty{
-            alertText="the field cannot be empty"
+            alertText="The field cannot be empty😷"
             showAlert.toggle()
             return false
         }
@@ -98,14 +99,14 @@ struct EmojiView: View {
     var body: some View{
         ZStack(alignment:.topLeading){
             ScrollView(.vertical, showsIndicators: false){
-                VStack(spacing:15){
+                VStack(spacing:16){
                     ForEach(self.getEmoji(),id:\.self){emoji in
-                        HStack(spacing:15){
+                        HStack(spacing:20){
                         ForEach(emoji, id: \.self){j in
                             Button {
                                 self.userText += String(UnicodeScalar(j)!)                             } label: {
                                 if (UnicodeScalar(j)?.properties.isEmoji)!{
-                                    Text(String(UnicodeScalar(j)!)).font(.system(size:55))
+                                    Text(String(UnicodeScalar(j)!)).font(.system(size:50))
                                 }else{
                                     Text("")
                                 }
@@ -141,6 +142,7 @@ struct EmojiView: View {
        return emojiArray
     }
 }
+
 
 struct addNew_Previews: PreviewProvider {
     static var previews: some View {

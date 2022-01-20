@@ -23,6 +23,8 @@
 		3526DCA5275542EB0095143B /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526DCA4275542EB0095143B /* EmptyView.swift */; };
 		3526DCA9275543BE0095143B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526DCA8275543BE0095143B /* ProfileView.swift */; };
 		3526DCAB275544470095143B /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526DCAA275544470095143B /* ProfileTabView.swift */; };
+		352BD6A227963063003ED40C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352BD6A127963063003ED40C /* SettingsView.swift */; };
+		354B351D27934AF0002866EF /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354B351C27934AF0002866EF /* ThemeView.swift */; };
 		3559B6202787AF8900935947 /* BottomSheet-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3559B61F2787AF8900935947 /* BottomSheet-SwiftUI */; };
 		356326432756775C00A9BB8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356326422756775C00A9BB8A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,8 @@
 		3526DCA4275542EB0095143B /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		3526DCA8275543BE0095143B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3526DCAA275544470095143B /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
+		352BD6A127963063003ED40C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		354B351C27934AF0002866EF /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		356326422756775C00A9BB8A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,11 +122,7 @@
 			children = (
 				3573A6A02762392500394D3D /* Views */,
 				356326422756775C00A9BB8A /* LaunchScreen.storyboard */,
-				3526DC6B27553F230095143B /* ToDoAppApp.swift */,
-				3526DCA2275540CF0095143B /* AddNewTask.swift */,
-				3526DC9927553FD90095143B /* ListViewModel.swift */,
-				3526DC9727553F950095143B /* ItemModel.swift */,
-				3526DC9B27553FE00095143B /* Images.swift */,
+				353909D52798B981008D4EF9 /* View Models */,
 				3526DC6F27553F260095143B /* Assets.xcassets */,
 				3526DC7127553F260095143B /* Preview Content */,
 			);
@@ -154,6 +154,18 @@
 			path = ToDoAppUITests;
 			sourceTree = "<group>";
 		};
+		353909D52798B981008D4EF9 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				3526DC6B27553F230095143B /* ToDoAppApp.swift */,
+				3526DCA2275540CF0095143B /* AddNewTask.swift */,
+				3526DC9927553FD90095143B /* ListViewModel.swift */,
+				3526DC9727553F950095143B /* ItemModel.swift */,
+				3526DC9B27553FE00095143B /* Images.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		3573A6A02762392500394D3D /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +175,8 @@
 				3526DC9E2755401D0095143B /* rowList.swift */,
 				3526DCAA275544470095143B /* ProfileTabView.swift */,
 				3526DCA8275543BE0095143B /* ProfileView.swift */,
+				354B351C27934AF0002866EF /* ThemeView.swift */,
+				352BD6A127963063003ED40C /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,6 +322,7 @@
 				3526DC9A27553FD90095143B /* ListViewModel.swift in Sources */,
 				3526DC9C27553FE00095143B /* Images.swift in Sources */,
 				3526DC6E27553F230095143B /* ContentView.swift in Sources */,
+				354B351D27934AF0002866EF /* ThemeView.swift in Sources */,
 				3526DC6C27553F230095143B /* ToDoAppApp.swift in Sources */,
 				3526DCA3275540CF0095143B /* AddNewTask.swift in Sources */,
 				3526DCA5275542EB0095143B /* EmptyView.swift in Sources */,
@@ -315,6 +330,7 @@
 				3526DCA9275543BE0095143B /* ProfileView.swift in Sources */,
 				3526DCAB275544470095143B /* ProfileTabView.swift in Sources */,
 				3526DC9627553F600095143B /* ToDoTaskView.swift in Sources */,
+				352BD6A227963063003ED40C /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,7 +507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = eko.vb.todoapp;
 				PRODUCT_NAME = "ToDo App";
 				PROVISIONING_PROFILE_SPECIFIER = TODO_APP_DEV_03.12.21;
@@ -525,7 +541,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = eko.vb.todoapp;
 				PRODUCT_NAME = "ToDo App";
 				PROVISIONING_PROFILE_SPECIFIER = TODO_APP_DIST_03.12.21;

@@ -14,9 +14,9 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "note.text.badge.plus").renderingMode(.template)
                 }.environmentObject(ListViewModel())
-            ProfileTabView()
+            ThemeView()
                 .tabItem {
-                    Image(systemName: "person.crop.circle.fill").background(Color.red)
+                    Image(systemName: "gearshape.2").background(Color.red)
                 }
         }.accentColor(Color("BackgroundColor"))
     }

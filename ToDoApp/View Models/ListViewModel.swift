@@ -26,8 +26,8 @@ class ListViewModel : ObservableObject {
         else{return}
         self.itemTexts = savedItems
     }
-    func deleteItem(indexSet : IndexSet){
-        itemTexts.remove(atOffsets: indexSet)
+    func deleteItem(DeletedItem : IndexSet){
+        itemTexts.remove(atOffsets: DeletedItem)
       /*  let deleteItem = itemModel(title: deletedTitle, isFinished: false)
         items.append(deleteItem)*/
     }
@@ -48,6 +48,9 @@ class ListViewModel : ObservableObject {
             if let encodedData = try? JSONEncoder().encode(itemTexts){
                 UserDefaults.standard.set(encodedData, forKey: itemsKey)
         }
+    }
+    func shareList(){
+        
     }
 
  }
