@@ -14,7 +14,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "note.text.badge.plus").renderingMode(.template)
                 }.environmentObject(ListViewModel())
-            ThemeView()
+            OptinionsScreen()
                 .tabItem {
                     Image(systemName: "gearshape.2").background(Color.red)
                 }

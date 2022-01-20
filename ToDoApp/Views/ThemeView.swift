@@ -8,34 +8,32 @@
 import Foundation
 import SwiftUI
 
-struct ThemeView : View {
+struct ElementsRectangle: View {
     var body: some View{
+        NavigationView{
             GeometryReader{_ in
                 VStack{
                     RoundedRectangle(cornerRadius: 30)
-                        .foregroundColor(.white)
-                        .frame(height:UIScreen.main.bounds.height/2).offset(y:250)
-                    SocialIcon()
-                        .frame(height: UIScreen.main.bounds.height/8)
-                        .offset(y:40)
-                    ThemeIcon()
-                        .frame(height: UIScreen.main.bounds.height/2.5
-                        ).offset(y:-160)
-                        
-                    AboutMe()
-                        .offset(y:-210)
-                    
-                }.background(Color.black)
+                        .foregroundColor(.red)
+                        .frame(height:UIScreen.main.bounds.height/2)
+                        .overlay(SocialIcon()
+                                    .frame(height: UIScreen.main.bounds.height/2))
+                        .overlay( ThemeIcon()
+                                    .frame(height: UIScreen.main.bounds.height/6))
+                        .overlay(AboutMe()
+                                    .frame(height: UIScreen.main.bounds.height/20).offset(y:60))
+                }
             }
         }
     }
-
+}
 struct ThemeViewPreviews : PreviewProvider {
     static var previews: some View {
-        ThemeView()
+        ElementsRectangle().previewLayout(.sizeThatFits)
         SocialIcon().previewLayout(.sizeThatFits)
         ThemeIcon().previewLayout(.sizeThatFits)
         AboutMe().previewLayout(.sizeThatFits)
+        OptinionsScreen()
     }
 }
 
@@ -45,6 +43,7 @@ struct SocialIcon: View{
             GeometryReader{_ in
                 RoundedRectangle(cornerRadius: 20)
                     .frame(width:UIScreen.main.bounds.width*0.2,height: UIScreen.main.bounds.height/10)
+                    .padding()
                     .overlay(Image(systemName: "rectangle.3.offgrid")
                                 .foregroundColor(.green))
                     .foregroundColor(.green).opacity(0.5)
@@ -57,7 +56,7 @@ struct SocialIcon: View{
                             .foregroundColor(.black)
                             .frame(width:UIScreen.main.bounds.width/2)
                             .offset(x:100)
-        
+                        
                     }))
             }
         }
@@ -69,11 +68,12 @@ struct ThemeIcon: View{
             GeometryReader{_ in
                 RoundedRectangle(cornerRadius: 20)
                     .frame(width:UIScreen.main.bounds.width*0.2,height: UIScreen.main.bounds.height/10)
+                    .padding()
                     .overlay(Image(systemName: "sun.min.fill")
                                 .foregroundColor(.purple))
                     .foregroundColor(Color("firstButtonColor")).opacity(0.6)
                     .overlay(NavigationLink(destination: {
-                        ThemeView()
+                        DarkTheme()
                     }, label: {
                         Text("Theme")
                             .bold()
@@ -92,11 +92,12 @@ struct AboutMe: View{
             GeometryReader{_ in
                 RoundedRectangle(cornerRadius: 20)
                     .frame(width:UIScreen.main.bounds.width*0.2,height: UIScreen.main.bounds.height/10)
+                    .padding()
                     .overlay(Image(systemName: "person")
                                 .foregroundColor(.pink))
                     .foregroundColor(.pink).opacity(0.4)
                     .overlay(NavigationLink(destination: {
-                        ThemeView()
+                        AboutMeView()
                     }, label: {
                         Text("About Me")
                             .bold()
@@ -110,3 +111,13 @@ struct AboutMe: View{
     }
 }
 
+struct OptinionsScreen : View {
+    var body : some View {
+        VStack{
+            Spacer(minLength: 199)
+            ElementsRectangle()
+                .padding()
+                
+        }
+        }
+}
