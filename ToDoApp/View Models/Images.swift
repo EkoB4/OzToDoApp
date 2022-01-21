@@ -86,12 +86,13 @@ struct MailImageView : View {
     }
 }
 struct AllSocials: View {
+    @Environment(\.colorScheme) var textColors 
     var body: some View{
         HStack(alignment:.bottom){
             GeometryReader{_ in
         RoundedRectangle(cornerRadius: 20)
                     .frame(width: UIScreen.main.bounds.width*0.9, height: UIScreen.main.bounds.height/2.3)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(textColors == .light ? .white : .black)
                     .padding(14)
                 MailImageView()
                     .frame(width: UIScreen.main.bounds.width*1, height: UIScreen.main.bounds.height/50)

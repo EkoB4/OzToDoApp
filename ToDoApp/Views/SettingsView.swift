@@ -54,27 +54,39 @@ struct SocialsView : View{
 
 
 struct DarkTheme : View {
+    @AppStorage("isDarkMode") private var isDark = false
     var body: some View{
         NavigationView{
             VStack{
                 GeometryReader{_ in
             HStack{
        Image("Dark")
-                    .frame(width:UIScreen.main.bounds.width*0.5 , height: UIScreen.main.bounds.height/1.5)
+                    .frame(width:UIScreen.main.bounds.width*0.5 , height: UIScreen.main.bounds.height/2)
         Image("LightTheme")
                     .frame(width: UIScreen.main.bounds.width*0.5)
-            
-            }.navigationTitle("THEME SETTINGS")
+            }
+                Text("Theme Settings")
+                        .bold()
+                        .frame(width:UIScreen.main.bounds.width*1,height: UIScreen.main.bounds.height/100)
+                        .font(.title).offset(y:-100)
                  Text("Dark Screen")
                         .bold()
-                        .frame(width: UIScreen.main.bounds.width*0.5, height: UIScreen.main.bounds.height/4)
+                        .frame(width: UIScreen.main.bounds.width*0.5, height: UIScreen.main.bounds.height/20)
                     
                     Text("Light Screen")
-                        .frame(width:UIScreen.main.bounds.width*1.5, height: UIScreen.main.bounds.height/4)
+                        .frame(width:UIScreen.main.bounds.width*1.5, height: UIScreen.main.bounds.height/20)
+                    Button {
+                        isDark.toggle()
+                    } label: {
+                        isDark ? Label("Dark", systemImage: "house") :
+                        Label("Light", systemImage: "house.fill")
+                    }.offset(x:160 , y:350)
                 }
             }.background(Color("TextColor").opacity(0.3))
+            Spacer()
         }
-}
+        .environment(\.colorScheme, isDark ? .dark : .light )
+    }
 }
 struct AllPreviews : PreviewProvider {
     static var previews: some View{

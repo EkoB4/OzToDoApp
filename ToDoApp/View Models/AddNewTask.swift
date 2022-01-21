@@ -26,6 +26,7 @@ struct AddNewTaskView: View {
             VStack{
                 HStack{
                 TextField("Add item...", text : $userText)
+                    .foregroundColor(.purple)
                     .padding()
                     .background(Color.white.opacity(1))
                     .cornerRadius(10)

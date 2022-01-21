@@ -10,19 +10,17 @@ import SwiftUI
 
 struct ElementsRectangle: View {
     var body: some View{
-        NavigationView{
-            GeometryReader{_ in
-                VStack{
-                    RoundedRectangle(cornerRadius: 30)
-                        .foregroundColor(.red)
-                        .frame(height:UIScreen.main.bounds.height/2)
-                        .overlay(SocialIcon()
-                                    .frame(height: UIScreen.main.bounds.height/2))
-                        .overlay( ThemeIcon()
-                                    .frame(height: UIScreen.main.bounds.height/6))
-                        .overlay(AboutMe()
-                                    .frame(height: UIScreen.main.bounds.height/20).offset(y:60))
-                }
+        GeometryReader{_ in
+            VStack{
+                RoundedRectangle(cornerRadius: 30)
+                    .foregroundColor(.white)
+                    .frame(height:UIScreen.main.bounds.height/2)
+                    .overlay(SocialIcon()
+                                .frame(height: UIScreen.main.bounds.height/2.3))
+                    .overlay( ThemeIcon()
+                                .frame(height: UIScreen.main.bounds.height/6))
+                    .overlay(AboutMe()
+                                .frame(height: UIScreen.main.bounds.height/20).offset(y:60))
             }
         }
     }
@@ -34,6 +32,7 @@ struct ThemeViewPreviews : PreviewProvider {
         ThemeIcon().previewLayout(.sizeThatFits)
         AboutMe().previewLayout(.sizeThatFits)
         OptinionsScreen()
+        TestDarkMode()
     }
 }
 
@@ -114,10 +113,32 @@ struct AboutMe: View{
 struct OptinionsScreen : View {
     var body : some View {
         VStack{
-            Spacer(minLength: 199)
-            ElementsRectangle()
-                .padding()
+        NavigationView{
+            VStack{
+                Text("Settings Tab")
+                    .bold()
+                    .font(.title)
+                    .foregroundColor(.white)
+                VStack{
+                    Spacer(minLength: 120)
+                    ElementsRectangle()
+                        .padding()
+                }
                 
+            }.background(Color("TextColor"))
         }
         }
+    }
+}
+
+struct TestDarkMode : View{
+    @AppStorage("EnableDarkMode") private var EnableDarkMode = false
+    var body: some View{
+        VStack{
+        Toggle("",isOn: $EnableDarkMode)
+            if EnableDarkMode{
+                Text("Light")
+            }
+        }
+    }
 }
