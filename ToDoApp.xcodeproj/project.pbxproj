@@ -27,7 +27,7 @@
 		354B351D27934AF0002866EF /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354B351C27934AF0002866EF /* ThemeView.swift */; };
 		3559B6202787AF8900935947 /* BottomSheet-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3559B61F2787AF8900935947 /* BottomSheet-SwiftUI */; };
 		356326432756775C00A9BB8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 356326422756775C00A9BB8A /* LaunchScreen.storyboard */; };
-		35707775279C329C008A9386 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35707774279C329C008A9386 /* TabBarView.swift */; };
+		35771906279CB50C00696730 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35771905279CB50C00696730 /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +70,7 @@
 		352BD6A127963063003ED40C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		354B351C27934AF0002866EF /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		356326422756775C00A9BB8A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		35707774279C329C008A9386 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		35771905279CB50C00696730 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +127,7 @@
 				353909D52798B981008D4EF9 /* View Models */,
 				3526DC6F27553F260095143B /* Assets.xcassets */,
 				3526DC7127553F260095143B /* Preview Content */,
+				35771905279CB50C00696730 /* CustomTabBar.swift */,
 			);
 			path = ToDoApp;
 			sourceTree = "<group>";
@@ -159,7 +160,6 @@
 		353909D52798B981008D4EF9 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				35707774279C329C008A9386 /* TabBarView.swift */,
 				3526DC6B27553F230095143B /* ToDoAppApp.swift */,
 				3526DCA2275540CF0095143B /* AddNewTask.swift */,
 				3526DC9927553FD90095143B /* ListViewModel.swift */,
@@ -323,7 +323,7 @@
 			files = (
 				3526DC9F2755401D0095143B /* rowList.swift in Sources */,
 				3526DC9A27553FD90095143B /* ListViewModel.swift in Sources */,
-				35707775279C329C008A9386 /* TabBarView.swift in Sources */,
+				35771906279CB50C00696730 /* CustomTabBar.swift in Sources */,
 				3526DC9C27553FE00095143B /* Images.swift in Sources */,
 				3526DC6E27553F230095143B /* ContentView.swift in Sources */,
 				354B351D27934AF0002866EF /* ThemeView.swift in Sources */,
