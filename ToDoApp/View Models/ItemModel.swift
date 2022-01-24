@@ -23,6 +23,12 @@ struct itemModel : Identifiable , Codable {
     func isUpdateComplated()-> itemModel{
         return itemModel(id: id ,title: title, isFinished: !isFinished,DeadDate: DeadDate)
     }
-    
 }
 
+class ViewRouter : ObservableObject{
+    @Published var currentPage : Page = .home
+}
+enum Page {
+    case home
+    case settings
+}

@@ -15,7 +15,6 @@ struct CustomTabBar: View {
 
 struct tabBarView : View {
     @State var selectedTab = "AddNote"
-    
     init(){
         UITabBar.appearance().isHidden = true
     }
@@ -34,60 +33,60 @@ struct tabBarView : View {
             HStack(spacing:0){
                 ForEach(TabIcons,id:\.self){icons in
                     GeometryReader{reader in
-                        Button(action: {
-                            selectedTab = icons
-                        }) {
-                            Image(icons)
-                                .resizable()
-                                .renderingMode(.template)
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width:25,height: 25)
-                                .foregroundColor(selectedTab == icons ? tabBarIconColor(icon: icons):Color.gray)
-                                .padding(selectedTab == icons ? 15 : 0)
+                    Button(action: {
+                        selectedTab = icons
+                    }) {
+                        Image(icons)
+                            .resizable()
+                            .renderingMode(.template)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width:25,height: 25)
+                            .foregroundColor(selectedTab == icons ? tabBarIconColor(icon: icons):Color.gray)
+                            .padding(selectedTab == icons ? 15 :0)
+                            .background(Color.white.opacity(selectedTab == icons ? 1 : 0))
+                            .offset(x:reader.frame(in: .global).minX - reader.frame(in: .global).midX,y:selectedTab == icons ? -40 : 0)
+                    }.onAppear(perform: {
+                        if icons == TabIcons.first{
+                            xPosition = reader.frame(in: .global).midX
                         }
-                
-                        .onAppear {
-                            if icons == TabIcons.first{
-                                xPosition = reader.frame(in: .global).minX
-                            }
-                        }
-                        .frame(width:25,height: 25)
-                        if icons != TabIcons.last{
-                            Spacer(minLength: 10)
-                        }
+                    })
+                    if icons != TabIcons.last{
+                        Spacer(minLength: 2)
                     }
                 }
-            }.frame(width:15,height: 25)
-                .padding(.horizontal,50)
-                .padding()
+            }
+                
+            }.frame(width:135,height: 25)
+            .padding(.horizontal,50)
+                .padding(.vertical)
                 .background(Color.white.clipShape(cornerAnimation(xPosition: xPosition)))
                 .cornerRadius(20)
+                .padding()
         }
     }
     func tabBarIconColor(icon :String) -> Color{
-        switch icon {
-        case "AddNote":
-            return(Color.red)
-        case "Settings":
-            return(Color.green)
-        default:
-            return(Color.blue)
+            switch icon {
+            case "AddNote":
+                return(Color.red)
+            case "Settings":
+                return(Color.green)
+            default:
+                return(Color.blue)
+            }
+            
         }
-        
-    }
 }
 
 struct cornerAnimation : Shape {
-    var xPosition :CGFloat
-    
+    var xPosition : CGFloat
     func path(in rect: CGRect) -> Path {
         return Path{path in
             path.move(to: CGPoint(x:0,y:0))
             path.addLine(to: CGPoint(x: rect.width,y:0))
             path.addLine(to: CGPoint(x: rect.width,y:rect.height))
             path.addLine(to: CGPoint(x: 0,y:rect.height))
-            let center = xPosition
             
+            let center = xPosition
             path.move(to: CGPoint(x:center-50, y: 0))
             
             let to1 = CGPoint(x:center, y:35)
@@ -100,8 +99,8 @@ struct cornerAnimation : Shape {
             
             path.addCurve(to: to1, control1: control1, control2: control2)
             path.addCurve(to: to2, control1: control3, control2: control4)
-            
-            
+
+
             
         }
     }

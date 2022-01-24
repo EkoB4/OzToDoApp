@@ -32,7 +32,6 @@ struct ThemeViewPreviews : PreviewProvider {
         ThemeIcon().previewLayout(.sizeThatFits)
         AboutMe().previewLayout(.sizeThatFits)
         OptinionsScreen()
-        TestDarkMode()
     }
 }
 
@@ -131,14 +130,3 @@ struct OptinionsScreen : View {
     }
 }
 
-struct TestDarkMode : View{
-    @AppStorage("EnableDarkMode") private var EnableDarkMode = false
-    var body: some View{
-        VStack{
-        Toggle("",isOn: $EnableDarkMode)
-            if EnableDarkMode{
-                Text("Light")
-            }
-        }
-    }
-}

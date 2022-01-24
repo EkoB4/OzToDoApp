@@ -12,7 +12,7 @@ struct ToDoAppApp: App {
     @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Home()
                 .preferredColorScheme(isDarkMode  ? .dark : .light)
         }
     }
