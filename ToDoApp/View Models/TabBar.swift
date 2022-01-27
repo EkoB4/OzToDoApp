@@ -57,7 +57,7 @@ struct Home:View{
             }
             .padding(.horizontal,30)
             .padding(.vertical)
-            .background(Color("TabBarColor").clipShape(CustomShape(xPosition: xPosition)).cornerRadius(20))
+            .background(Color("BackgroundColor").clipShape(CustomShape(xPosition: xPosition)).cornerRadius(20))
             .padding()
             .padding(.bottom,UIApplication.shared.windows.first?.safeAreaInsets.bottom)
         }
@@ -67,7 +67,7 @@ struct Home:View{
     func setIconColor(icon:String)->Color{
         switch icon{
         case "AddNote":
-            return Color.brown
+            return Color.purple
         case "Settings":
             return Color.green
         default:

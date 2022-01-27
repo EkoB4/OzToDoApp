@@ -21,14 +21,13 @@ struct AddNewTaskView: View {
         dateFormat.dateStyle = .short
         return dateFormat
     }
-    @State private var isSheetOpen = false
+    @State private var isSheetOpen = true
     var body: some View {
             VStack{
                 HStack{
                 TextField("Add item...", text : $userText)
-                    .foregroundColor(.purple)
                     .padding()
-                    .background(Color.white.opacity(1))
+                    .background(Color("TextFieldColor"))
                     .cornerRadius(10)
                     .frame(height:50)
                 }
@@ -60,11 +59,11 @@ struct AddNewTaskView: View {
                               Color.white
                           }
 
-            }.padding(14)
+            }
+            .padding(14)
             .background(Color("SecondScreenColor"))
         .navigationBarTitle("Add a new task")
         .alert(isPresented: $showAlert, content: alertCome)
-        
     }
     
     func saveButtonPressed(){

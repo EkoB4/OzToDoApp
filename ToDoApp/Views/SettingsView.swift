@@ -12,15 +12,34 @@ struct AboutMeView : View{
     var body: some View{
         NavigationView{
         VStack{
+            Text("Me")
+                .font(.title)
+                .bold()
+                .background(RoundedRectangle(cornerRadius: 10)
+                                .fill(.white)
+                                .frame(width: 150, height: 60, alignment: .topLeading))
             HStack{
                 Text("Hi my name is Ekin, i'm living in Turkey. im in highschool(9th grade , Turk Kizilayi Anadolu Lisesi) I wrote this app for take speed notes. My github in 'socials', you can visit ( :").bold()
-                    .frame(width:UIScreen.main.bounds.height/4)
+                    .frame(width:UIScreen.main.bounds.height/2.5)
                     .background(RoundedRectangle(cornerRadius: 20)
-                                    .frame(width: 200, height: 350)
-                                    .foregroundColor(Color("TextColor")))
-                    .navigationTitle("About Me:")
+                                    .frame(maxWidth: 350, maxHeight: 350)
+                                    .foregroundColor(Color.white))
+                    .position(x: 200, y: 150)
+             
+                NavigationLink {
+                    SocialsView()
+                } label: {
+                    Text("Go On Socials")
+                        .foregroundColor(.red)
+                        .background(RoundedRectangle(cornerRadius: 20)
+                                        .foregroundColor(.white)
+                                        .frame(maxWidth: 350, maxHeight: 350))
+                        .position(x: 20, y: 400)
+
+                }
+
             }
-          }
+        }.background(Color("TextColor"))
         }
 }
 }
@@ -78,9 +97,13 @@ struct DarkTheme : View {
                     Button {
                         isDark.toggle()
                     } label: {
-                        isDark ? Label("Dark", systemImage: "house") :
-                        Label("Light", systemImage: "house.fill")
-                    }.offset(x:160 , y:350)
+                        Text("Change Theme!")
+                            .bold()
+                            .foregroundColor(Color("TextColor"))
+                            .background(RoundedRectangle(cornerRadius: 20)
+                                            .fill(.white)
+                                            .frame(width:150,height: 50))
+                    }.offset(x:130 , y:330)
                 }
             }.background(Color("TextColor").opacity(0.3))
             Spacer()

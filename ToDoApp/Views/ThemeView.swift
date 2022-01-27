@@ -119,12 +119,12 @@ struct OptinionsScreen : View {
                     .font(.title)
                     .foregroundColor(.white)
                 VStack{
-                    Spacer(minLength: 120)
+                    Spacer(minLength: 60)
                     ElementsRectangle()
                         .padding()
                 }
                 
-            }.background(Color("TextColor"))
+            }.background(Color("ThemeColor"))
         }
         }
     }
