@@ -21,9 +21,12 @@ struct AddNewTaskView: View {
         dateFormat.dateStyle = .short
         return dateFormat
     }
+    init(){
+        UINavigationBar.appearance().tintColor = .purple
+    }
     @State private var isSheetOpen = true
     var body: some View {
-            VStack{
+        VStack{
                 HStack{
                 TextField("Add item...", text : $userText)
                     .padding()

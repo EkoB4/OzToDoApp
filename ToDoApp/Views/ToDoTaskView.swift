@@ -30,6 +30,7 @@ struct TodoListView: View {
             }
             /*Navigation Bar items*/
             //.listStyle(PlainListStyle())
+            .accentColor(Color.red)
             .navigationBarTitle(" Oz To Do App")
             .navigationBarItems(leading: EditButton().foregroundColor(Color("TextColor")),
                                 trailing: NavigationLink(destination: AddNewTaskView(), label: {

@@ -10,36 +10,12 @@ import SwiftUI
 
 struct AboutMeView : View{
     var body: some View{
-        NavigationView{
         VStack{
-            Text("Me")
-                .font(.title)
+            Text("sa")
                 .bold()
-                .background(RoundedRectangle(cornerRadius: 10)
-                                .fill(.white)
-                                .frame(width: 150, height: 60, alignment: .topLeading))
-            HStack{
-                Text("Hi my name is Ekin, i'm living in Turkey. im in highschool(9th grade , Turk Kizilayi Anadolu Lisesi) I wrote this app for take speed notes. My github in 'socials', you can visit ( :").bold()
-                    .frame(width:UIScreen.main.bounds.height/2.5)
-                    .background(RoundedRectangle(cornerRadius: 20)
-                                    .frame(maxWidth: 350, maxHeight: 350)
-                                    .foregroundColor(Color.white))
-                    .position(x: 200, y: 150)
-             
-                NavigationLink {
-                    SocialsView()
-                } label: {
-                    Text("Go On Socials")
-                        .foregroundColor(.red)
-                        .background(RoundedRectangle(cornerRadius: 20)
-                                        .foregroundColor(.white)
-                                        .frame(maxWidth: 350, maxHeight: 350))
-                        .position(x: 20, y: 400)
-
-                }
-
-            }
-        }.background(Color("TextColor"))
+                .font(.title)
+                .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/2, alignment: .center)
+                .offset(x: -100, y: -180)
         }
 }
 }
