@@ -11,13 +11,27 @@ import SwiftUI
 struct AboutMeView : View{
     var body: some View{
         VStack{
-            Text("sa")
-                .bold()
-                .font(.title)
-                .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/2, alignment: .center)
-                .offset(x: -100, y: -180)
-        }
-}
+            HStack{
+                Text("Hello There! My name is Ekin,")
+                    .font(.title)
+                    .bold()
+                    .padding()
+                    .multilineTextAlignment(.center)
+                    .shadow(radius: 20)
+                    .foregroundColor(.purple.opacity(0.5))
+                    .frame(width: UIScreen.main.bounds.width/1,height: UIScreen.main.bounds.height/1)
+                    .offset(y:-250)
+                    .background(LinearGradient(gradient: Gradient(colors: [.white,.purple]),startPoint: .top,endPoint: .bottom))
+                    .overlay(
+                        Text("Im from Turkey and i living in Istanbul. Im 14 years old. I am a 9th grade student.Why did I create this app in the first place? Sometimes I forget basic things in my social life. And I said I need a note taking app. And I designed this app. It was a sweet application. I hope you have fun using it :)").bold()
+                            .padding()
+                            .foregroundColor(.white)
+                            .shadow(radius: 100)
+                            .multilineTextAlignment(.center)
+                            .font(.title2)
+                    )
+            }        }
+    }
 }
 
 struct SocialsView : View{
@@ -41,7 +55,7 @@ struct SocialsView : View{
                     .frame(width: pos.size.width*1, height: pos.size.height/20)
                 AllSocials()
                     .offset(x:10,y:180)
-                    
+                
             }
         }
     }
@@ -54,17 +68,17 @@ struct DarkTheme : View {
         NavigationView{
             VStack{
                 GeometryReader{_ in
-            HStack{
-       Image("Dark")
-                    .frame(width:UIScreen.main.bounds.width*0.5 , height: UIScreen.main.bounds.height/2)
-        Image("LightTheme")
-                    .frame(width: UIScreen.main.bounds.width*0.5)
-            }
-                Text("Theme Settings")
+                    HStack{
+                        Image("Dark")
+                            .frame(width:UIScreen.main.bounds.width*0.5 , height: UIScreen.main.bounds.height/2)
+                        Image("LightTheme")
+                            .frame(width: UIScreen.main.bounds.width*0.5)
+                    }
+                    Text("Theme Settings")
                         .bold()
                         .frame(width:UIScreen.main.bounds.width*1,height: UIScreen.main.bounds.height/100)
                         .font(.title).offset(y:-100)
-                 Text("Dark Screen")
+                    Text("Dark Screen")
                         .bold()
                         .frame(width: UIScreen.main.bounds.width*0.5, height: UIScreen.main.bounds.height/20)
                     
